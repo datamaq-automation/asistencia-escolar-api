@@ -111,4 +111,4 @@ El sistema maneja datos de menores de edad, alcanzados por la Ley 25.326 de Prot
 
 ## Autora
 
-Proyecto integrador individual.
+Proyecto integrador individual con asistencia guiada de Claude IA.
