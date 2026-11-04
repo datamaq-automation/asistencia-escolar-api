@@ -28,7 +28,6 @@ Clean Architecture con Screaming DDD. Cada capa solo depende de las capas intern
 src/
 ├── domain/           # Entidades, value objects, servicio de alertas, interfaces de repositorios
 ├── application/      # 7 casos de uso, DTOs (Pydantic) y mappers
-├── adapters/         # Capa reservada: por ahora los routers llaman directo a los casos de uso
 ├── infrastructure/
 │   ├── fastapi/      # Routers y dependencias
 │   ├── sqlalchemy/   # Modelos de tablas y repositorios reales
@@ -112,3 +111,17 @@ El sistema maneja datos de menores de edad, alcanzados por la Ley 25.326 de Prot
 ## Autora
 
 Proyecto integrador individual.
+
+## Decisiones de diseño
+
+- **Sin capa de adapters por ahora.** La plantilla prevé una capa de controllers y presenters entre los casos de uso y FastAPI. Como los routers ya son delgados (solo llaman al caso de uso y devuelven su respuesta), esa capa no aporta nada hoy y se quitó para no dejar carpetas vacías. Se incorporará si aparece lógica de presentación que justifique separarla.
+- **SQLAlchemy síncrono.** Todos los casos de uso son síncronos y SQLite alcanza para una sola escuela.
+- **Ramas y Pull Requests.** Los primeros commits (dominio, aplicación, base de datos, API, documentación inicial y calendario) se hicieron directamente sobre main. Desde el MVP web, cada funcionalidad va en su propia rama y se une a main con un Pull Request que referencia su issue.
+
+## Uso de inteligencia artificial
+
+Desarrollé este proyecto con la asistencia de Claude (Anthropic), un asistente de IA conversacional.
+
+- **Qué hizo el asistente:** propuso la arquitectura en capas y el plan de etapas, escribió la mayor parte del código y de los tests a partir de mis pedidos, y me guió en el uso de Git y GitHub.
+- **Qué hice yo:** definí el problema y las reglas de negocio (tres motivos de inasistencia, turnos, trimestres, quién consulta qué), decidí el alcance, ejecuté el código, corrí los tests y probé la API a mano. Al probarla detecté que pasar lista aceptaba datos inválidos, y eso se corrigió con tests de regresión. Creé los issues, las ramas, los commits y los Pull Requests.
+- **Revisión:** cada cambio se probó antes de subirse, con tests automáticos y prueba manual en /docs.

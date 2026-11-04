@@ -52,7 +52,7 @@ Es una herramienta institucional para una escuela pública, sin fines comerciale
 | **Estructura de costos** | Sin licencias: tecnologías de código abierto. Costo de mantenimiento y respaldo de datos. |
 | **Fuentes de ingresos** | No aplica. |
 
-**Gobernanza de agentes IA:** no aplica. El desarrollo es individual.
+**Gobernanza de agentes IA:** desarrollo individual asistido por un asistente de IA (Claude). El detalle está en la sección "Uso de inteligencia artificial" del README.
 
 **Escalera de evolución:**
 
@@ -128,7 +128,6 @@ src/
 │   ├── use_cases/           # 7 casos de uso
 │   ├── dtos/                # Request y Response (Pydantic)
 │   └── mappers/             # DTO <-> entidad
-├── adapters/                # Capa reservada, sin uso por ahora
 ├── infrastructure/
 │   ├── fastapi/             # routers/ y dependencies.py
 │   ├── sqlalchemy/          # database.py, models/, repositories/
