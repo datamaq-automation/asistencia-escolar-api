@@ -1,4 +1,4 @@
-﻿from flask import Flask, jsonify
+﻿from flask import Flask, jsonify, render_template
 from pydantic import ValidationError
 
 from src.domain.asistencia_escolar.exceptions import DatosInvalidosError
@@ -12,9 +12,17 @@ def create_app() -> Flask:
     settings = get_settings()
     orm_models.Base.metadata.create_all(engine)
 
-    app = Flask(__name__)
+    app = Flask(
+        __name__,
+        template_folder="../templates",
+        static_folder="../static",
+    )
     app.config["JSON_SORT_KEYS"] = False
     app.config["JSON_AS_ASCII"] = False
+
+    @app.route("/")
+    def index():
+        return render_template("index.html")
 
     @app.errorhandler(DatosInvalidosError)
     def manejar_datos_invalidos(exc: DatosInvalidosError):

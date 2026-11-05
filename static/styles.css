@@ -1,0 +1,18 @@
+body {
+  min-height: 100vh;
+}
+
+.card {
+  border: none;
+  border-radius: 1rem;
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+}
+
+#alertas-container .list-group-item {
+  border-radius: 0.75rem;
+  margin-bottom: 0.5rem;
+}
