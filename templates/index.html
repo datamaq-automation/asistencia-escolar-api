@@ -185,6 +185,84 @@
           </div>
         </div>
       </div>
+
+      <div class="row g-4 mt-1">
+        <div class="col-lg-6">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h2 class="h4 mb-3">Acciones de seguimiento</h2>
+              <form id="accion-form">
+                <div class="mb-3">
+                  <label class="form-label">ID de alumno</label>
+                  <input type="number" class="form-control" name="alumno_id" min="1" required />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Tipo de acción</label>
+                  <select class="form-select" name="tipo_accion" required>
+                    <option value="llamado_familia">Llamado a familia</option>
+                    <option value="nota_cuaderno">Nota en cuaderno</option>
+                    <option value="reunion_familia">Reunión con familia</option>
+                    <option value="derivacion_orientacion">Derivación a orientación</option>
+                    <option value="otro">Otro</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Descripción</label>
+                  <textarea class="form-control" name="descripcion" rows="3" required></textarea>
+                </div>
+                <div class="row g-2">
+                  <div class="col-md-6">
+                    <label class="form-label">Realizado por</label>
+                    <input type="text" class="form-control" name="realizado_por" required />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Rol</label>
+                    <select class="form-select" name="rol_autor" required>
+                      <option value="docente">Docente</option>
+                      <option value="directivo">Directivo</option>
+                      <option value="orientacion">Orientación</option>
+                    </select>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 mt-3">Registrar acción</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="h4 mb-0">Historial de acciones</h2>
+              </div>
+              <div class="input-group mb-3">
+                <input id="historial-alumno-id" type="number" class="form-control" min="1" placeholder="ID del alumno" />
+                <button id="consultar-historial" class="btn btn-outline-primary" type="button">Consultar</button>
+              </div>
+              <div id="historial-container" class="list-group"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4 mt-1 mb-4">
+        <div class="col-12">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="h4 mb-0">Reporte de seguimiento</h2>
+                <div class="input-group input-group-sm" style="max-width: 200px;">
+                  <span class="input-group-text">Límite</span>
+                  <input id="limite-seguimiento" type="number" class="form-control" min="1" value="5" />
+                </div>
+              </div>
+              <button id="refresh-seguimiento" class="btn btn-info text-white mb-3">Consultar seguimiento</button>
+              <div id="seguimiento-container" class="accordion"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

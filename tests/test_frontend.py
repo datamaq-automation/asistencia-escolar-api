@@ -7,3 +7,5 @@ def test_index_page_serves_html() -> None:
 
     assert response.status_code == 200
     assert b"Sistema de Asistencia Escolar" in response.data
+    assert b"Acciones de seguimiento" in response.data
+    assert b"Reporte de seguimiento" in response.data
