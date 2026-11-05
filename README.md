@@ -18,7 +18,7 @@ Además de registrar presentes y ausentes, el sistema permite que el **docente**
 
 ## Tecnologías
 
-Python 3.13, FastAPI, SQLAlchemy 2 con SQLite, Pydantic v2 y pytest.
+Python 3.13, Flask, SQLAlchemy 2 con SQLite, Pydantic v2 y pytest.
 
 ## Arquitectura
 
@@ -30,7 +30,7 @@ src/
 ├── application/      # 7 casos de uso, DTOs (Pydantic) y mappers
 ├── adapters/         # Capa reservada: por ahora los routers llaman directo a los casos de uso
 ├── infrastructure/
-│   ├── fastapi/      # Routers y dependencias
+│   ├── flask/        # Routers y dependencias
 │   ├── sqlalchemy/   # Modelos de tablas y repositorios reales
 │   └── settings/     # Configuración y logging
 └── main.py           # Punto de entrada de la API
@@ -46,7 +46,7 @@ tests/
 | Domain (entidades, reglas, servicio de alertas) | Completo |
 | Application (7 casos de uso) | Completo |
 | Infrastructure: base de datos SQLite y repositorios reales | Completo |
-| API REST con FastAPI | Completa (primera versión) |
+| API REST con Flask | Completa (primera versión) |
 | Login por usuario y rol | Pendiente |
 | Carga masiva de nómina | Pendiente |
 | Interfaz web para celular y tablet | Pendiente |
@@ -56,7 +56,7 @@ tests/
 
 ## API
 
-Con el servidor corriendo, la documentación interactiva está en `http://127.0.0.1:8000/docs`.
+Con el servidor corriendo, la API queda disponible en `http://127.0.0.1:5000`.
 
 | Método | Ruta | Qué hace |
 |---|---|---|
@@ -92,7 +92,7 @@ pip install -r requirements.txt
 Levantar la API (la base de datos `asistencia_escolar.db` se crea sola):
 
 ```powershell
-python -m uvicorn src.main:app --reload
+python -m flask --app src.main run --debug
 ```
 
 Ejecutar los tests:

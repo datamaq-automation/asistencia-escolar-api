@@ -28,7 +28,7 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = Field(default=60)
 
     # Base de datos
-    DATABASE_URL: str = Field(default="sqlite+aiosqlite:///./asistencia_escolar.db")
+    DATABASE_URL: str = Field(default="sqlite:///./asistencia_escolar.db")
 
 
 @lru_cache()

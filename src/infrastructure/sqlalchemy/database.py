@@ -10,7 +10,7 @@ class Base(DeclarativeBase):
 
 
 def _url_sincronica() -> str:
-    return get_settings().DATABASE_URL.replace("sqlite+aiosqlite", "sqlite")
+    return get_settings().DATABASE_URL
 
 
 engine: Engine = create_engine(
